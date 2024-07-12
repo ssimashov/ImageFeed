@@ -34,8 +34,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="281"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jgr-xJ-f4U" userLabel="Cell Image">
-                                                    <rect key="frame" x="20" y="11" width="353" height="259"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="jgr-xJ-f4U" userLabel="Cell Image">
+                                                    <rect key="frame" x="16" y="4" width="361" height="273"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="16"/>
@@ -44,33 +44,39 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB2-Hc-PCm" userLabel="Date Label">
-                                                    <rect key="frame" x="28" y="244" width="152" height="18"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="DQc-7c-Q1b"/>
-                                                        <constraint firstAttribute="width" constant="152" id="rNt-RA-5mq"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="24" y="253.66666666666666" width="361" height="15.333333333333343"/>
                                                     <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="13"/>
                                                     <color key="textColor" name="YP White"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2I-8Z-CMa" userLabel="Like Button">
-                                                    <rect key="frame" x="307" y="11" width="66" height="56"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="LikeActive"/>
+                                                    <rect key="frame" x="333" y="4" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="CP2-LT-REI"/>
+                                                        <constraint firstAttribute="width" constant="44" id="TOg-CU-Pj7"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="LikeActive"/>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" name="YP Black"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jgr-xJ-f4U" secondAttribute="bottom" id="0a1-aa-4Nu"/>
+                                                <constraint firstAttribute="bottom" secondItem="jgr-xJ-f4U" secondAttribute="bottom" constant="4" id="0a1-aa-4Nu"/>
                                                 <constraint firstItem="oB2-Hc-PCm" firstAttribute="leading" secondItem="jgr-xJ-f4U" secondAttribute="leading" constant="8" id="36y-S9-bhn"/>
-                                                <constraint firstItem="oB2-Hc-PCm" firstAttribute="bottom" secondItem="jgr-xJ-f4U" secondAttribute="bottom" constant="-8" id="NXm-Dh-QhC"/>
-                                                <constraint firstItem="S2I-8Z-CMa" firstAttribute="trailing" secondItem="FcF-fp-2VP" secondAttribute="trailingMargin" id="PLM-Ba-KQB"/>
-                                                <constraint firstItem="jgr-xJ-f4U" firstAttribute="top" secondItem="FcF-fp-2VP" secondAttribute="topMargin" id="oml-s9-uk0"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="jgr-xJ-f4U" secondAttribute="trailing" id="qZH-HD-QYG"/>
-                                                <constraint firstItem="jgr-xJ-f4U" firstAttribute="leading" secondItem="FcF-fp-2VP" secondAttribute="leadingMargin" id="uNl-mh-rmi"/>
-                                                <constraint firstItem="S2I-8Z-CMa" firstAttribute="top" secondItem="FcF-fp-2VP" secondAttribute="topMargin" id="wog-Qy-Nwa"/>
+                                                <constraint firstItem="jgr-xJ-f4U" firstAttribute="bottom" secondItem="oB2-Hc-PCm" secondAttribute="bottom" constant="8" id="NXm-Dh-QhC"/>
+                                                <constraint firstItem="jgr-xJ-f4U" firstAttribute="trailing" secondItem="S2I-8Z-CMa" secondAttribute="trailing" id="PLM-Ba-KQB"/>
+                                                <constraint firstItem="oB2-Hc-PCm" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jgr-xJ-f4U" secondAttribute="trailing" constant="8" id="b6d-D4-F6y"/>
+                                                <constraint firstItem="jgr-xJ-f4U" firstAttribute="top" secondItem="FcF-fp-2VP" secondAttribute="top" constant="4" id="oml-s9-uk0"/>
+                                                <constraint firstAttribute="trailing" secondItem="jgr-xJ-f4U" secondAttribute="trailing" constant="16" id="qZH-HD-QYG"/>
+                                                <constraint firstItem="jgr-xJ-f4U" firstAttribute="leading" secondItem="FcF-fp-2VP" secondAttribute="leading" constant="16" id="uNl-mh-rmi"/>
+                                                <constraint firstItem="S2I-8Z-CMa" firstAttribute="top" secondItem="jgr-xJ-f4U" secondAttribute="top" id="wog-Qy-Nwa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellImage" destination="jgr-xJ-f4U" id="DMg-hR-VMF"/>
+                                            <outlet property="dateLabel" destination="oB2-Hc-PCm" id="vdk-N4-GPD"/>
+                                            <outlet property="likeButton" destination="S2I-8Z-CMa" id="H2n-PD-k5P"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -94,6 +100,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0" width="1600" height="1059"/>
         <image name="LikeActive" width="42" height="42"/>
         <namedColor name="YP Black">
             <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
