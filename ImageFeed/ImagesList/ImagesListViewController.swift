@@ -26,13 +26,7 @@ class ImagesListViewController: UIViewController {
        
         tableView.delegate = self
         tableView.dataSource = self
-//        
-//        tableView.register(
-//            ImagesListCell.self,
-//            forCellReuseIdentifier: ImagesListCell.reuseIdendifier
-//        )
-//        
-//        tableView.rowHeight = 200
+
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
     }
     
