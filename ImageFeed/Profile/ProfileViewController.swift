@@ -2,15 +2,22 @@
 //  ProfileViewController.swift
 //  ImageFeed
 //
-//  Created by Sergey Simashov on 16.07.2024.
+//  Created by Sergey Simashov on 17.07.2024.
 //
+
+import Foundation
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    @IBOutlet private var logoutButton: UIButton!
+    @IBOutlet private var avatarImageView: UIView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var loginLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    
+    @IBAction func didTapLogoutButton() {
     }
+    
 }
