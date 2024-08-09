@@ -135,16 +135,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQe-QG-dTT">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQe-QG-dTT">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Ej-9a-VWZ">
                                         <rect key="frame" x="0.0" y="0.0" width="271" height="352"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="GXT-wd-GTL"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="uKJ-4x-UTS"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="8Az-s6-RFw"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="7jY-7X-q8c"/>
                                 <connections>
                                     <outlet property="delegate" destination="LH3-Xb-lbJ" id="lhW-Ks-g0p"/>
                                 </connections>
@@ -178,13 +179,9 @@
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
                             <constraint firstItem="4CP-ZD-5X2" firstAttribute="top" secondItem="yWd-Q3-DHr" secondAttribute="top" constant="8" id="1fR-ur-ZuF"/>
-                            <constraint firstItem="yWd-Q3-DHr" firstAttribute="trailing" secondItem="rQe-QG-dTT" secondAttribute="trailing" id="3m5-x9-c4O"/>
                             <constraint firstItem="yWd-Q3-DHr" firstAttribute="bottom" secondItem="7h1-jf-jGc" secondAttribute="bottom" constant="50" id="ANA-Vr-NZ2"/>
                             <constraint firstItem="4CP-ZD-5X2" firstAttribute="leading" secondItem="yWd-Q3-DHr" secondAttribute="leading" constant="8" id="Djj-EA-sJ8"/>
-                            <constraint firstAttribute="bottom" secondItem="rQe-QG-dTT" secondAttribute="bottom" id="I4c-4A-4A9"/>
-                            <constraint firstItem="rQe-QG-dTT" firstAttribute="top" secondItem="aMM-Wm-A33" secondAttribute="top" id="OHp-E3-MjM"/>
                             <constraint firstItem="7h1-jf-jGc" firstAttribute="centerX" secondItem="yWd-Q3-DHr" secondAttribute="centerX" id="bfp-mY-fOs"/>
-                            <constraint firstItem="rQe-QG-dTT" firstAttribute="leading" secondItem="yWd-Q3-DHr" secondAttribute="leading" id="etj-WK-9NO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="46D-AA-Ers"/>
