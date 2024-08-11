@@ -131,9 +131,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQe-QG-dTT">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQe-QG-dTT">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Ej-9a-VWZ">
                                         <rect key="frame" x="0.0" y="0.0" width="271" height="352"/>
@@ -177,7 +176,11 @@
                             <constraint firstItem="4CP-ZD-5X2" firstAttribute="top" secondItem="yWd-Q3-DHr" secondAttribute="top" constant="8" id="1fR-ur-ZuF"/>
                             <constraint firstItem="yWd-Q3-DHr" firstAttribute="bottom" secondItem="7h1-jf-jGc" secondAttribute="bottom" constant="50" id="ANA-Vr-NZ2"/>
                             <constraint firstItem="4CP-ZD-5X2" firstAttribute="leading" secondItem="yWd-Q3-DHr" secondAttribute="leading" constant="8" id="Djj-EA-sJ8"/>
+                            <constraint firstItem="rQe-QG-dTT" firstAttribute="top" secondItem="aMM-Wm-A33" secondAttribute="top" id="HFK-QA-gbt"/>
                             <constraint firstItem="7h1-jf-jGc" firstAttribute="centerX" secondItem="yWd-Q3-DHr" secondAttribute="centerX" id="bfp-mY-fOs"/>
+                            <constraint firstItem="rQe-QG-dTT" firstAttribute="trailing" secondItem="yWd-Q3-DHr" secondAttribute="trailing" id="dLP-z7-kC4"/>
+                            <constraint firstAttribute="bottom" secondItem="rQe-QG-dTT" secondAttribute="bottom" id="em6-G9-uL2"/>
+                            <constraint firstItem="rQe-QG-dTT" firstAttribute="leading" secondItem="yWd-Q3-DHr" secondAttribute="leading" id="pkX-Lg-v3D"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="46D-AA-Ers"/>
