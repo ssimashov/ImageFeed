@@ -18,6 +18,7 @@
 		F640EE762C3720260010512A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F640EE752C3720260010512A /* Assets.xcassets */; };
 		F640EE792C3720260010512A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F640EE782C3720260010512A /* Base */; };
 		F692F47C2C5016F20055FA32 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F692F47B2C5016F20055FA32 /* SingleImageViewController.swift */; };
+		F6CF6C022C692F49001AF87C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF6C012C692F48001AF87C /* Constants.swift */; };
 		F6D8C6972C46EAEC00453F75 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D8C6952C46EAEB00453F75 /* SF-Pro-Italic.ttf */; };
 		F6D8C6982C46EAEC00453F75 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D8C6962C46EAEC00453F75 /* SF-Pro.ttf */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		F640EE782C3720260010512A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F640EE7A2C3720260010512A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F692F47B2C5016F20055FA32 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		F6CF6C012C692F48001AF87C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6D8C6952C46EAEB00453F75 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
 		F6D8C6962C46EAEC00453F75 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				F61920342C418E6300171E55 /* YS Display-Medium.ttf */,
 				F61920322C418E5900171E55 /* YS Display-Bold.ttf */,
 				F640EE752C3720260010512A /* Assets.xcassets */,
+				F6CF6C012C692F48001AF87C /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				F61920302C4054E400171E55 /* imagesListCell.swift in Sources */,
 				F61FFC492C483D85005D5D46 /* ProfileViewController.swift in Sources */,
 				F640EE6D2C3720250010512A /* AppDelegate.swift in Sources */,
+				F6CF6C022C692F49001AF87C /* Constants.swift in Sources */,
 				F692F47C2C5016F20055FA32 /* SingleImageViewController.swift in Sources */,
 				F640EE6F2C3720250010512A /* SceneDelegate.swift in Sources */,
 			);
