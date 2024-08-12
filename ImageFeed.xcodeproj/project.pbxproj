@@ -79,7 +79,6 @@
 				F61920342C418E6300171E55 /* YS Display-Medium.ttf */,
 				F61920322C418E5900171E55 /* YS Display-Bold.ttf */,
 				F640EE752C3720260010512A /* Assets.xcassets */,
-				F6CF6C012C692F48001AF87C /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -110,6 +109,7 @@
 				F619202E2C4054C200171E55 /* ImagesList */,
 				F640EE6C2C3720250010512A /* AppDelegate.swift */,
 				F640EE6E2C3720250010512A /* SceneDelegate.swift */,
+				F6CF6C012C692F48001AF87C /* Constants.swift */,
 				F640EE722C3720250010512A /* Main.storyboard */,
 			);
 			path = ImageFeed;
