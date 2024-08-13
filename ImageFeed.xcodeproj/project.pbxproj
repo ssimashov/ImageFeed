@@ -21,6 +21,7 @@
 		F6CF6C022C692F49001AF87C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF6C012C692F48001AF87C /* Constants.swift */; };
 		F6D8C6972C46EAEC00453F75 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D8C6952C46EAEB00453F75 /* SF-Pro-Italic.ttf */; };
 		F6D8C6982C46EAEC00453F75 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D8C6962C46EAEC00453F75 /* SF-Pro.ttf */; };
+		F6E1E7252C6BCF6F00355DD7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1E7242C6BCF6F00355DD7 /* AuthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F6CF6C012C692F48001AF87C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6D8C6952C46EAEB00453F75 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
 		F6D8C6962C46EAEC00453F75 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		F6E1E7242C6BCF6F00355DD7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		F640EE6B2C3720250010512A /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				F6E1E7232C6BCF4200355DD7 /* Auth */,
 				F640EE7A2C3720260010512A /* Info.plist */,
 				F692F47A2C5016AB0055FA32 /* SingleImage */,
 				F61920312C418E3F00171E55 /* Resources */,
@@ -121,6 +124,14 @@
 				F692F47B2C5016F20055FA32 /* SingleImageViewController.swift */,
 			);
 			path = SingleImage;
+			sourceTree = "<group>";
+		};
+		F6E1E7232C6BCF4200355DD7 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F6E1E7242C6BCF6F00355DD7 /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 				F61920302C4054E400171E55 /* imagesListCell.swift in Sources */,
 				F61FFC492C483D85005D5D46 /* ProfileViewController.swift in Sources */,
 				F640EE6D2C3720250010512A /* AppDelegate.swift in Sources */,
+				F6E1E7252C6BCF6F00355DD7 /* AuthViewController.swift in Sources */,
 				F6CF6C022C692F49001AF87C /* Constants.swift in Sources */,
 				F692F47C2C5016F20055FA32 /* SingleImageViewController.swift in Sources */,
 				F640EE6F2C3720250010512A /* SceneDelegate.swift in Sources */,
