@@ -48,7 +48,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="M3b-Vx-yB9" kind="show" identifier="ShowWebWiew" id="5Rm-t5-iFm"/>
+                                    <segue destination="M3b-Vx-yB9" kind="show" identifier="ShowWebView" id="5Rm-t5-iFm"/>
                                 </connections>
                             </button>
                         </subviews>
