@@ -11,7 +11,7 @@ final class OAuth2Service {
     static let shared = OAuth2Service()
     
     private init() {}
-
+    
     func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let request = makeOAuthTokenRequest(code: code) else {
             let error = FetchOAuthTokenError.invalidResponse
@@ -19,8 +19,8 @@ final class OAuth2Service {
             completion(.failure(error))
             return
         }
-
-    let task = URLSession.shared.data(for: request) { result in
+        
+        let task = URLSession.shared.data(for: request) { result in
             switch result {
             case .success(let data):
                 do {
@@ -72,5 +72,5 @@ final class OAuth2Service {
         request.httpMethod = "POST"
         return request
     }
-
+    
 }
