@@ -49,6 +49,7 @@ extension AuthViewController: WebViewViewControllerDelegate {
         vc.dismiss(animated: true)
         
         ProgressHUD.animate()
+        
         oauth2Service.fetchOAuthToken(code) { [weak self] result in
             guard let self = self else { return }
             
