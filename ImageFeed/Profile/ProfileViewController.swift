@@ -18,6 +18,8 @@ final class ProfileViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let logoutButton = UIButton()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
