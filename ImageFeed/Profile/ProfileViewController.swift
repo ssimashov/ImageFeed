@@ -18,7 +18,16 @@ final class ProfileViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let logoutButton = UIButton()
     
+    private let profileService = ProfileService.shared
+    private let tokenStorage = OAuth2TokenStorage.shared
     
+    private var profile: Profile = Profile(
+        username: "ekaterina_nov",
+        name: "Екатерина Новикова",
+        loginName: "@ekaterina_nov",
+        bio: "Hello, world!"
+        
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +37,7 @@ final class ProfileViewController: UIViewController {
         addLoginLabel()
         addDescriptionLabel()
         addLogoutButton()
-        
+        updateProfile()
     }
     
     private func addAvatarimageView() {
@@ -93,6 +102,32 @@ final class ProfileViewController: UIViewController {
         logoutButton.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
         logoutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         
+    }
+    
+    func updateProfile() {
+        if let profile = profileService.profile{
+            updateProfileDetails(profile: profile)
+        } else {
+            guard let token = tokenStorage.token else { return }
+            
+            profileService.fetchProfile(token) { [weak self] result in
+                switch result {
+                case .success(let profile):
+                    DispatchQueue.main.async {
+                        self?.updateProfileDetails(profile: profile)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func updateProfileDetails(profile: Profile){
+        self.profile = profile
+        nameLabel.text = profile.name
+        loginLabel.text = profile.loginName
+        descriptionLabel.text = profile.bio
     }
 }
 

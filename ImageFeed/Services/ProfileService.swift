@@ -11,12 +11,12 @@ enum ProfileServiceError: Error {
     case invalidRequest
 }
 
-struct ProfileResult: Codable {
-    let username: String
-    let firstName: String
-    let lastName: String
-    let bio: String?
-}
+//"struct ProfileResult: Codable {
+//    let username: String
+//    let firstName: String
+//    let lastName: String
+//    let bio: String?
+//}"
 
 struct Profile: Codable {
     let username: String
@@ -28,9 +28,9 @@ struct Profile: Codable {
 extension Profile {
     init(from profileResult: ProfileServiceResponseBody) {
         self.username = profileResult.username
-        self.name = "\(profileResult.firstName) \(profileResult.lastName)"
+        self.name = "\(profileResult.firstName ?? "") \(profileResult.lastName ?? "")"
         self.loginName = "@\(profileResult.username)"
-        self.bio = profileResult.bio
+        self.bio = profileResult.bio ?? ""
     }
 }
 
