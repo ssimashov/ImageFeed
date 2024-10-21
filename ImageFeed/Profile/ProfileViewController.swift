@@ -19,6 +19,7 @@ final class ProfileViewController: UIViewController {
     private let logoutButton = UIButton()
     
     private let profileService = ProfileService.shared
+    private let profileImageService = ProfileImageService.shared
     private let tokenStorage = OAuth2TokenStorage.shared
     
     private var profile: Profile = Profile(
@@ -26,18 +27,29 @@ final class ProfileViewController: UIViewController {
         name: "Екатерина Новикова",
         loginName: "@ekaterina_nov",
         bio: "Hello, world!"
-        
     )
-    
+    private var profileImageServiceObserver: NSObjectProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileImageServiceObserver = NotificationCenter.default
+                 .addObserver(
+                     forName: ProfileImageService.didChangeNotification,
+                     object: nil,
+                     queue: .main
+                 ) { [weak self] _ in
+                     guard let self = self else { return }
+                     self.updateAvatar()
+                 }
         addAvatarimageView()
         addNameLabel()
         addLoginLabel()
         addDescriptionLabel()
         addLogoutButton()
-        updateProfile()
+        updateProfileDetails(profile: profile)
+        updateAvatar()
+
     }
     
     private func addAvatarimageView() {
@@ -103,27 +115,35 @@ final class ProfileViewController: UIViewController {
         logoutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         
     }
-    
-    func updateProfile() {
-        if let profile = profileService.profile{
-            updateProfileDetails(profile: profile)
-        } else {
-            guard let token = tokenStorage.token else { return }
-            
-            profileService.fetchProfile(token) { [weak self] result in
-                switch result {
-                case .success(let profile):
-                    DispatchQueue.main.async {
-                        self?.updateProfileDetails(profile: profile)
-                    }
-                case .failure(let error):
-                    print(error)
-                }
+    private func updateAvatar() {
+         guard
+             let profileImageURL = ProfileImageService.shared.avatarURL,
+             let url = URL(string: profileImageURL)
+         else { return }
+         
+//         imageViewProfile.kf.setImage(with: url) { result in
+//             switch result {
+//             case .success(let value):
+//                 print("Image: \(value.image); Image URL: \(value.source.url?.absoluteString ?? "")")
+//             case .failure(let error):
+//                 print("Error: \(error)")
+//             }
+//         }
+     }
+    private func fetchProfileImage(username: String) {
+        profileImageService.fetchProfileImageURL(username: username) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let imageURL):
+                print("Profile image URL: \(imageURL)")
+                self.updateAvatar()
+            case .failure(let error):
+                print("Failed to fetch profile image URL: \(error)")
             }
         }
     }
     
-    func updateProfileDetails(profile: Profile){
+    func updateProfileDetails(profile: Profile) {
         self.profile = profile
         nameLabel.text = profile.name
         loginLabel.text = profile.loginName

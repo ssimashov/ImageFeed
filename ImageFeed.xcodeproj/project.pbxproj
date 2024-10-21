@@ -10,6 +10,7 @@
 		F6003F212CBD944800CD90FA /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6003F202CBD942800CD90FA /* UIBlockingProgressHUD.swift */; };
 		F6003F252CBD981100CD90FA /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6003F242CBD981100CD90FA /* ProfileService.swift */; };
 		F6003F292CBDA74F00CD90FA /* ProfileServiceResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6003F282CBDA74F00CD90FA /* ProfileServiceResponseBody.swift */; };
+		F61365702CC570E000AC791A /* ProfileImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613656F2CC570E000AC791A /* ProfileImageService.swift */; };
 		F61920302C4054E400171E55 /* imagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619202F2C4054E400171E55 /* imagesListCell.swift */; };
 		F61920332C418E5900171E55 /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F61920322C418E5900171E55 /* YS Display-Bold.ttf */; };
 		F61920352C418E6300171E55 /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F61920342C418E6300171E55 /* YS Display-Medium.ttf */; };
@@ -38,6 +39,7 @@
 		F6003F202CBD942800CD90FA /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		F6003F242CBD981100CD90FA /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		F6003F282CBDA74F00CD90FA /* ProfileServiceResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceResponseBody.swift; sourceTree = "<group>"; };
+		F613656F2CC570E000AC791A /* ProfileImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageService.swift; sourceTree = "<group>"; };
 		F619202F2C4054E400171E55 /* imagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagesListCell.swift; sourceTree = "<group>"; };
 		F61920322C418E5900171E55 /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		F61920342C418E6300171E55 /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				F6003F242CBD981100CD90FA /* ProfileService.swift */,
 				F6CDA11A2C73B62400E12927 /* OAuth2Service.swift */,
 				F6CDA1232C74F3C300E12927 /* OAuth2TokenStorage.swift */,
+				F613656F2CC570E000AC791A /* ProfileImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				F6CDA11F2C74EF9C00E12927 /* URLSession+data.swift in Sources */,
 				F6E1E7272C6BD60A00355DD7 /* WebViewViewController.swift in Sources */,
 				F6CDA11B2C73B62400E12927 /* OAuth2Service.swift in Sources */,
+				F61365702CC570E000AC791A /* ProfileImageService.swift in Sources */,
 				F6CDA1242C74F3C300E12927 /* OAuth2TokenStorage.swift in Sources */,
 				F640EE6F2C3720250010512A /* SceneDelegate.swift in Sources */,
 			);
