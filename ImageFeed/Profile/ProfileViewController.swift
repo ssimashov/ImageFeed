@@ -8,6 +8,7 @@
 import Foundation
 
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
     
@@ -121,14 +122,14 @@ final class ProfileViewController: UIViewController {
              let url = URL(string: profileImageURL)
          else { return }
          
-//         imageViewProfile.kf.setImage(with: url) { result in
-//             switch result {
-//             case .success(let value):
-//                 print("Image: \(value.image); Image URL: \(value.source.url?.absoluteString ?? "")")
-//             case .failure(let error):
-//                 print("Error: \(error)")
-//             }
-//         }
+        avatarImageView.kf.setImage(with: url) { result in
+             switch result {
+             case .success(let value):
+                 print("Image: \(value.image); Image URL: \(value.source.url?.absoluteString ?? "")")
+             case .failure(let error):
+                 print("Error: \(error)")
+             }
+         }
      }
     private func fetchProfileImage(username: String) {
         profileImageService.fetchProfileImageURL(username: username) { [weak self] result in
