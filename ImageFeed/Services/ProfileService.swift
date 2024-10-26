@@ -41,7 +41,7 @@ final class ProfileService {
     private let urlSession = URLSession.shared
     private var task: URLSessionTask?
     private var lastToken: String?
-
+    
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         
         assert(Thread.isMainThread)
@@ -62,9 +62,9 @@ final class ProfileService {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let profileResult):
-                        let profile = Profile(from: profileResult)
-                        self?.profile = profile
-                        completion(.success(profile))
+                    let profile = Profile(from: profileResult)
+                    self?.profile = profile
+                    completion(.success(profile))
                 case .failure(let error):
                     if let networkError = error as? NetworkError {
                         switch networkError {
@@ -87,7 +87,7 @@ final class ProfileService {
         self.task = task
         task.resume()
     }
-
+    
     private func makeProfileRequest(token: String) -> URLRequest? {
         guard let baseURL = URL(string: "https://api.unsplash.com") else {
             assertionFailure("Failed to create URL")

@@ -26,7 +26,6 @@ final class SplashViewController: UIViewController {
         
         if oAuthTokenStorage.token != nil {
             switchToTabBarController()
-//            self.showAuthViewController()
         } else {
             self.showAuthViewController()
         }
@@ -47,6 +46,7 @@ final class SplashViewController: UIViewController {
         splashImageView.image = UIImage(named: "splash_screen_logo")
         
         splashImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(splashImageView)
         
         splashImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
@@ -80,24 +80,6 @@ final class SplashViewController: UIViewController {
     }
 }
 
-//extension SplashViewController {
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == showAuthenticationScreenSegueIdentifier {
-//            guard
-//                let navigationController = segue.destination as? UINavigationController,
-//                let viewController = navigationController.viewControllers[0] as? AuthViewController
-//            else {
-//                assertionFailure("Failed to prepare for \(showAuthenticationScreenSegueIdentifier)")
-//                return
-//            }
-//            viewController.delegate = self
-//            navigationController.modalPresentationStyle = .fullScreen
-//        } else {
-//            super.prepare(for: segue, sender: sender)
-//        }
-//    }
-//}
-
 extension SplashViewController: AuthViewControllerDelegate {
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
         vc.dismiss(animated: true) { [weak self] in
@@ -128,3 +110,4 @@ extension SplashViewController: AuthViewControllerDelegate {
         }
     }
 }
+

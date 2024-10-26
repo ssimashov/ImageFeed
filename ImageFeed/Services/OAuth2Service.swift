@@ -19,7 +19,7 @@ final class OAuth2Service {
     private let urlSession = URLSession.shared
     private var task: URLSessionTask?
     private var lastCode: String?
-
+    
     func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
         
         assert(Thread.isMainThread)
@@ -35,13 +35,13 @@ final class OAuth2Service {
             completion(.failure(AuthServiceError.invalidRequest))
             return
         }
-            
+        
         let task = urlSession.objectTask(for: request) { [weak self] (result: Result<OAuthTokenResponseBody, Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let tokenResponse):
-                        OAuth2TokenStorage.shared.token = tokenResponse.accessToken
-                        completion(.success(tokenResponse.accessToken))
+                    OAuth2TokenStorage.shared.token = tokenResponse.accessToken
+                    completion(.success(tokenResponse.accessToken))
                 case .failure(let error):
                     if let networkError = error as? NetworkError {
                         switch networkError {
@@ -87,5 +87,4 @@ final class OAuth2Service {
         request.httpMethod = "POST"
         return request
     }
-
 }
