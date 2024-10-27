@@ -7,14 +7,6 @@
 
 import UIKit
 
-struct UserResult: Codable {
-    let profileImage: ProfileServiceResponseBody.ProfileImage
-    
-    enum CodingKeys: String, CodingKey {
-        case profileImage = "profile_image"
-    }
-}
-
 final class ProfileImageService {
     static let shared = ProfileImageService()
     private init() {}

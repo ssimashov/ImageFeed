@@ -7,29 +7,6 @@
 
 import Foundation
 
-enum ProfileServiceError: Error {
-    case invalidRequest
-    case invalidURL
-    case noData
-    case decodingError
-    case missingProfileImageURL
-}
-
-struct Profile: Codable {
-    let username: String
-    let name: String
-    let loginName: String
-    let bio: String
-}
-extension Profile {
-    init(from profileResult: ProfileServiceResponseBody) {
-        self.username = profileResult.username
-        self.name = "\(profileResult.firstName ?? "") \(profileResult.lastName ?? "")"
-        self.loginName = "@\(profileResult.username)"
-        self.bio = profileResult.bio ?? ""
-    }
-}
-
 final class ProfileService {
     
     static let shared = ProfileService()

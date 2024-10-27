@@ -25,6 +25,9 @@
 		F677728B2CC81F3B0051B9DA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F677728A2CC81F3B0051B9DA /* Kingfisher */; };
 		F677728E2CCAA92B0051B9DA /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = F677728D2CCAA92B0051B9DA /* SwiftKeychainWrapper */; };
 		F67772942CCD558F0051B9DA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67772932CCD558F0051B9DA /* TabBarController.swift */; };
+		F67772982CCE4C3F0051B9DA /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67772972CCE4C3F0051B9DA /* UserResult.swift */; };
+		F677729A2CCE4CA50051B9DA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67772992CCE4CA50051B9DA /* Profile.swift */; };
+		F677729C2CCE4CEE0051B9DA /* ProfileServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677729B2CCE4CEE0051B9DA /* ProfileServiceError.swift */; };
 		F692F47C2C5016F20055FA32 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F692F47B2C5016F20055FA32 /* SingleImageViewController.swift */; };
 		F6CDA11B2C73B62400E12927 /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDA11A2C73B62400E12927 /* OAuth2Service.swift */; };
 		F6CDA11F2C74EF9C00E12927 /* URLSession+data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDA11E2C74EF9C00E12927 /* URLSession+data.swift */; };
@@ -56,6 +59,9 @@
 		F640EE782C3720260010512A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F640EE7A2C3720260010512A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F67772932CCD558F0051B9DA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F67772972CCE4C3F0051B9DA /* UserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
+		F67772992CCE4CA50051B9DA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F677729B2CCE4CEE0051B9DA /* ProfileServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceError.swift; sourceTree = "<group>"; };
 		F692F47B2C5016F20055FA32 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		F6CDA11A2C73B62400E12927 /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
 		F6CDA11E2C74EF9C00E12927 /* URLSession+data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+data.swift"; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 		F6CDA11D2C74EF7100E12927 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F677729B2CCE4CEE0051B9DA /* ProfileServiceError.swift */,
 				F6CDA11E2C74EF9C00E12927 /* URLSession+data.swift */,
 			);
 			path = Helpers;
@@ -190,6 +197,8 @@
 		F6CDA1202C74F0C600E12927 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F67772992CCE4CA50051B9DA /* Profile.swift */,
+				F67772972CCE4C3F0051B9DA /* UserResult.swift */,
 				F6CDA1212C74F11500E12927 /* OAuthTokenResponseBody.swift */,
 				F6003F282CBDA74F00CD90FA /* ProfileServiceResponseBody.swift */,
 			);
@@ -308,10 +317,13 @@
 				F6CDA1272C750A5900E12927 /* SplashViewController.swift in Sources */,
 				F6E1E7252C6BCF6F00355DD7 /* AuthViewController.swift in Sources */,
 				F6CF6C022C692F49001AF87C /* Constants.swift in Sources */,
+				F677729A2CCE4CA50051B9DA /* Profile.swift in Sources */,
 				F6003F212CBD944800CD90FA /* UIBlockingProgressHUD.swift in Sources */,
 				F692F47C2C5016F20055FA32 /* SingleImageViewController.swift in Sources */,
 				F6CDA11F2C74EF9C00E12927 /* URLSession+data.swift in Sources */,
+				F67772982CCE4C3F0051B9DA /* UserResult.swift in Sources */,
 				F67772942CCD558F0051B9DA /* TabBarController.swift in Sources */,
+				F677729C2CCE4CEE0051B9DA /* ProfileServiceError.swift in Sources */,
 				F6E1E7272C6BD60A00355DD7 /* WebViewViewController.swift in Sources */,
 				F6CDA11B2C73B62400E12927 /* OAuth2Service.swift in Sources */,
 				F61365702CC570E000AC791A /* ProfileImageService.swift in Sources */,

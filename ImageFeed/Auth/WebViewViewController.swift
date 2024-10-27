@@ -32,8 +32,7 @@ final class WebViewViewController: UIViewController {
             \.estimatedProgress,
              options: [],
              changeHandler: { [weak self] _, _ in
-                 guard let self = self else { return }
-                 self.updateProgress()
+                 self?.updateProgress()
              })
     }
     override func viewWillAppear(_ animated: Bool) {

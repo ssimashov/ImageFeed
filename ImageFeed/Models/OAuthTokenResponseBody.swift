@@ -5,7 +5,6 @@
 //  Created by Sergey Simashov on 20.08.2024.
 //
 
-import UIKit
 
 struct OAuthTokenResponseBody: Codable {
     let accessToken: String

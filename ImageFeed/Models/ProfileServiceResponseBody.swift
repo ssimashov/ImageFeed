@@ -5,7 +5,6 @@
 //  Created by Sergey Simashov on 14.10.2024.
 //
 
-import Foundation
 
 struct ProfileServiceResponseBody: Codable {
     let username: String
@@ -28,5 +27,4 @@ struct ProfileServiceResponseBody: Codable {
         let medium: String?
         let large: String?
     }
-    
 }
