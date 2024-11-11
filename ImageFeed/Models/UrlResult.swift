@@ -4,8 +4,9 @@
 //
 //  Created by Sergey Simashov on 30.10.2024.
 //
+import Foundation
 
-struct UrlResult: Codable {
+struct UrlsResult: Codable {
     let raw: String
     let full: String
     let regular: String

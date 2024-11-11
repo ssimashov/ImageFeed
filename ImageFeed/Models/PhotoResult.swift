@@ -5,22 +5,32 @@
 //  Created by Sergey Simashov on 30.10.2024.
 //
 
+import Foundation
+
 struct PhotoResult: Codable {
     let id: String
+    let createdAt: String
+    let updatedAt: String
     let width: Int
     let height: Int
-    let createdAt: String?
+    let color: String
+    let blurHash: String
+    let likes: Int
+    let likedByUser: Bool
     let description: String?
-    let urls: UrlResult
-    let isLiked: Bool
+    let urls: UrlsResult
     
-    private enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
         case width
         case height
-        case createdAt = "created_at"
+        case color
+        case blurHash = "blur_hash"
+        case likes
+        case likedByUser = "liked_by_user"
         case description
         case urls
-        case isLiked = "liked_by_user"
     }
 }
