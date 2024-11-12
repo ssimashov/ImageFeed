@@ -51,5 +51,4 @@ struct Photo {
         self.fullImageURL = photoResult.urls.full
         self.isLiked = photoResult.likedByUser
     }
-
 }

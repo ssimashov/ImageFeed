@@ -12,6 +12,7 @@ struct Profile: Codable {
     let loginName: String
     let bio: String
 }
+
 extension Profile {
     init(from profileResult: ProfileServiceResponseBody) {
         self.username = profileResult.username

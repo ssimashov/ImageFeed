@@ -174,7 +174,7 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="LikeActive"/>
                                                     <connections>
-                                                        <action selector="likeButtonClicked:" destination="Lhf-bX-HNU" eventType="touchUpInside" id="qMN-zw-SKV"/>
+                                                        <action selector="likeButtonClicked" destination="Lhf-bX-HNU" eventType="touchUpInside" id="sGp-Yy-uq1"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -251,7 +251,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="Backward"/>
                                 <connections>
-                                    <action selector="didTapBackButton" destination="LH3-Xb-lbJ" eventType="touchUpInside" id="gbd-je-KiZ"/>
+                                    <action selector="didTapBackButton:" destination="LH3-Xb-lbJ" eventType="touchUpInside" id="Eih-5G-an0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-jf-jGc" userLabel="Sharing Button">

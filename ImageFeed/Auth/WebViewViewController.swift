@@ -22,7 +22,6 @@ final class WebViewViewController: UIViewController {
     
     private var estimatedProgressObservation: NSKeyValueObservation?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
@@ -35,6 +34,7 @@ final class WebViewViewController: UIViewController {
                  self?.updateProgress()
              })
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateProgress()
@@ -46,10 +46,6 @@ final class WebViewViewController: UIViewController {
     
     private func updateProgress() {
         progressView.setProgress(Float(webView.estimatedProgress), animated: true)
-    }
-    
-    @IBAction private func didTapBackButton(_ sender: Any?) {
-        delegate?.webViewViewControllerDidCancel(self)
     }
 }
 
@@ -93,6 +89,7 @@ private extension WebViewViewController {
             URLQueryItem(name: "response_type", value: "code"),
             URLQueryItem(name: "scope", value: Constants.accessScope)
         ]
+        
         guard let url = urlComponents.url else {
             print("Web View url error")
             return
@@ -100,6 +97,5 @@ private extension WebViewViewController {
         
         let request = URLRequest(url: url)
         webView.load(request)
-        
     }
 }
