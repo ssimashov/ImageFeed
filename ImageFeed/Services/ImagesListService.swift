@@ -20,6 +20,7 @@ final class ImagesListService {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
+        formatter.locale = Locale(identifier: "ru_RU")
         return formatter
     }()
     
@@ -30,7 +31,11 @@ final class ImagesListService {
     }
     
     func dateToString(_ date: Date?) -> String? {
-        return dateFormatter.string(from: date ?? Date())
+        if let date = date {
+            return dateFormatter.string(from: date)
+        } else {
+            return ""
+        }
     }
     
     func fetchPhotosNextPage() {
