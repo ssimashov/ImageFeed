@@ -16,10 +16,21 @@ final class ImagesListService {
     private var lastLoadedPage: (number: Int, total: Int)?
     private var task: URLSessionTask?
     
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter
+    }()
+    
     static let didChangeNotification = Notification.Name("ImagesListServiceDidChange")
     
     func clearImagesList() {
         photos.removeAll()
+    }
+    
+    func dateToString(_ date: Date?) -> String? {
+        return dateFormatter.string(from: date ?? Date())
     }
     
     func fetchPhotosNextPage() {

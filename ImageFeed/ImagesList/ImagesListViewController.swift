@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 final class ImagesListViewController: UIViewController {
     
@@ -14,12 +13,6 @@ final class ImagesListViewController: UIViewController {
     
     private let imagesListService = ImagesListService.shared
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        return formatter
-    }()
     
     var photos: [Photo] = []
     
@@ -79,19 +72,10 @@ extension ImagesListViewController: UITableViewDataSource {
         guard let imageListCell = cell as? ImagesListCell else {
             return UITableViewCell()
         }
-        let photo = photos[indexPath.row]
         
         imageListCell.delegate = self
-        imageListCell.cellImage.kf.indicatorType = .activity
-        imageListCell.cellImage.kf.setImage(
-            with: URL(string: photo.thumbImageURL),
-            placeholder: UIImage(named: "Loader")
-        )
         
-        imageListCell.dateLabel.text = dateFormatter.string(from: photo.createdAt ?? Date())
-        
-        let likeImage = photo.isLiked ? UIImage(named: "LikeActive") : UIImage(named: "LikeNoActive")
-        imageListCell.likeButton.setImage(likeImage, for: .normal)
+        imageListCell.configCell(for: imageListCell, with: indexPath, photos: photos, tableView)
         
         return imageListCell
     }
@@ -103,10 +87,7 @@ extension ImagesListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let photo = photos[indexPath.row]
-        guard let image = ImageCache.default.retrieveImageInMemoryCache(forKey: photo.thumbImageURL) else {
-            return 200
-        }
+        let image = photos[indexPath.row]
         let imageInsets = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
         let imageViewWidth = tableView.bounds.width - imageInsets.left - imageInsets.right
         let imageWidth = image.size.width
