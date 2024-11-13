@@ -135,13 +135,12 @@ extension ImagesListViewController: ImagesListCellDelegate {
             case .success:
                 self.photos = self.imagesListService.photos
                 cell.setIsLiked(self.photos[indexPath.row].isLiked)
-                UIBlockingProgressHUD.dismiss()
             case .failure:
-                UIBlockingProgressHUD.dismiss()
                 let alert = UIAlertController(title: "Ошибка", message: "Не удалось изменить статус лайка", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+            UIBlockingProgressHUD.dismiss()
         }
     }
 }

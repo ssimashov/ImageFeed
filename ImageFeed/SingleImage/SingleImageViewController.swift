@@ -31,11 +31,11 @@ final class SingleImageViewController: UIViewController {
         loadImage()
     }
     
-    @IBAction func didTapBackButton(_ sender: Any) {
+    @IBAction private func didTapBackButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func didTapShareButton(_ sender: UIButton) {
+    @IBAction private func didTapShareButton(_ sender: UIButton) {
         guard let image else { return }
         let share = UIActivityViewController(
             activityItems: [image],
@@ -43,6 +43,7 @@ final class SingleImageViewController: UIViewController {
         )
         present(share, animated: true, completion: nil)
     }
+    
     private func loadImage() {
         guard let fullImageURLString = fullImageURL, let fullImageURL = URL(string: fullImageURLString) else { return }
         

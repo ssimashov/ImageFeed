@@ -31,7 +31,7 @@ final class ImagesListCell: UITableViewCell {
         likeButton.setImage(likeImage, for: .normal)
     }
     
-    @IBAction func likeButtonClicked() {
+    @IBAction private func likeButtonClicked() {
         delegate?.imageListCellDidTapLike(self)
     }
 }

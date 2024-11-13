@@ -7,7 +7,6 @@
 
 import Foundation
 import WebKit
-import UIKit
 
 final class ProfileLogoutService {
     static let shared = ProfileLogoutService()

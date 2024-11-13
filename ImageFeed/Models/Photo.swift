@@ -15,7 +15,7 @@ struct Photo {
         return formatter
     }()
     
-    internal init(id: String, size: CGSize, createdAt: Date? = nil, welcomeDescription: String? = nil, thumbImageURL: String, largeImageURL: String, fullImageURL: String, isLiked: Bool) {
+    init(id: String, size: CGSize, createdAt: Date? = nil, welcomeDescription: String? = nil, thumbImageURL: String, largeImageURL: String, fullImageURL: String, isLiked: Bool) {
         self.id = id
         self.size = size
         self.createdAt = createdAt

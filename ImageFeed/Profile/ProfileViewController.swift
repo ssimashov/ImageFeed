@@ -12,11 +12,11 @@ import SwiftKeychainWrapper
 
 final class ProfileViewController: UIViewController {
     
-    private let exitButton = UIButton()
-    private let imageViewProfile = UIImageView()
-    private let fioLabel = UILabel()
-    private let userNameLabel = UILabel()
-    private let descriptionLabel = UILabel()
+    private lazy var exitButton = UIButton()
+    private lazy var imageViewProfile = UIImageView()
+    private lazy var fioLabel = UILabel()
+    private lazy var userNameLabel = UILabel()
+    private lazy var descriptionLabel = UILabel()
     private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
     private let tokenStorage = OAuth2TokenStorage.shared
