@@ -17,22 +17,26 @@ final class ProfileImageService {
     private let urlSession = URLSession.shared
     private var task: URLSessionTask?
     private var lastUsername: String?
-
+    
+    func clearProfileImage() {
+        avatarURL = nil
+    }
+    
     func fetchProfileImageURL(username: String, _ completion: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
         guard lastUsername != username else {
             completion(.failure(ProfileServiceError.invalidRequest))
             return
         }
-
+        
         task?.cancel()
         lastUsername = username
-
+        
         guard let request = makeProfileImageRequest(username: username) else {
             completion(.failure(ProfileServiceError.invalidURL))
             return
         }
-
+        
         let task = urlSession.objectTask(for: request) { [weak self] (result: Result<ProfileServiceResponseBody, Error>) in
             DispatchQueue.main.async {
                 switch result {
@@ -71,9 +75,9 @@ final class ProfileImageService {
         self.task = task
         task.resume()
     }
-
+    
     private func makeProfileImageRequest(username: String) -> URLRequest? {
-        guard let baseURL = URL(string: "https://api.unsplash.com") else {
+        guard let baseURL = Constants.defaultBaseURL else {
             assertionFailure("Failed to create URL")
             return nil
         }

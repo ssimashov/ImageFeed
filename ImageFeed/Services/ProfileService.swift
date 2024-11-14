@@ -19,6 +19,10 @@ final class ProfileService {
     private var task: URLSessionTask?
     private var lastToken: String?
     
+    func clearProfileData() {
+        profile = nil
+    }
+    
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         
         assert(Thread.isMainThread)
@@ -66,7 +70,7 @@ final class ProfileService {
     }
     
     private func makeProfileRequest(token: String) -> URLRequest? {
-        guard let baseURL = URL(string: "https://api.unsplash.com") else {
+        guard let baseURL = Constants.defaultBaseURL else {
             assertionFailure("Failed to create URL")
             return nil
         }
