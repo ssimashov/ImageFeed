@@ -70,12 +70,8 @@ final class ProfileService {
     }
     
     private func makeProfileRequest(token: String) -> URLRequest? {
-        guard let baseURL = Constants.defaultBaseURL else {
-            assertionFailure("Failed to create URL")
-            return nil
-        }
         
-        guard let url = URL(string: "/me", relativeTo: baseURL) else {
+        guard let url = URL(string: "/me", relativeTo: Constants.defaultBaseURL) else {
             return nil
         }
         
