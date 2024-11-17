@@ -8,15 +8,25 @@
 
 import UIKit
 import Kingfisher
-import SwiftKeychainWrapper
+//import SwiftKeychainWrapper
 
-final class ProfileViewController: UIViewController {
+protocol ProfileViewControllerProtocol: AnyObject {
+    var presenter: ProfileViewPresenterProtocol? { get set }
+    func profileViewCreated()
+    func updateProfileDetails(profile: Profile)
+    func updateAvatarImage(with url: URL)
+}
+
+final class ProfileViewController: UIViewController & ProfileViewControllerProtocol {
+    
+    var presenter: ProfileViewPresenterProtocol?
     
     private lazy var exitButton = UIButton()
     private lazy var imageViewProfile = UIImageView()
     private lazy var fioLabel = UILabel()
     private lazy var userNameLabel = UILabel()
     private lazy var descriptionLabel = UILabel()
+    
     private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
     private let tokenStorage = OAuth2TokenStorage.shared
@@ -27,10 +37,15 @@ final class ProfileViewController: UIViewController {
         loginName: "@ekaterina_nov",
         bio: "Hello, world!"
     )
+    
     private var profileImageServiceObserver: NSObjectProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let profilePresenter = ProfileViewPresenter(view: self)
+        self.presenter = profilePresenter
+        profilePresenter.view = self
         
         self.view.backgroundColor = UIColor.ypBlack
         
@@ -43,12 +58,13 @@ final class ProfileViewController: UIViewController {
                 guard let self = self else { return }
                 self.updateAvatar()
             }
-        profileViewCreated()
-        updateProfileDetailsIfNeeded()
-        updateAvatar()
+//        profileViewCreated()
+//        updateProfileDetailsIfNeeded()
+//        updateAvatar()
+        presenter?.viewDidLoad()
     }
     
-    private func profileViewCreated() {
+   func profileViewCreated() {
         imageViewProfile.image = UIImage(named: "defaultProfileImage")
         imageViewProfile.tintColor = .red
         imageViewProfile.layer.cornerRadius = 35
@@ -95,11 +111,11 @@ final class ProfileViewController: UIViewController {
         descriptionLabel.leadingAnchor.constraint(equalTo: imageViewProfile.leadingAnchor).isActive = true
     }
     
-    private func updateAvatar() {
-        guard
-            let profileImageURL = ProfileImageService.shared.avatarURL,
-            let url = URL(string: profileImageURL)
-        else { return }
+    private func updateAvatar(with url: URL) {
+//        guard
+//            let profileImageURL = ProfileImageService.shared.avatarURL,
+//            let url = URL(string: profileImageURL)
+//        else { return }
         
         imageViewProfile.kf.setImage(with: url) { result in
             switch result {
@@ -111,41 +127,41 @@ final class ProfileViewController: UIViewController {
         }
     }
     
-    private func updateProfileDetailsIfNeeded() {
-        if let profile = profileService.profile {
-            updateProfileDetails(profile: profile)
-            fetchProfileImage(username: profile.username)
-        } else {
-            guard let token = tokenStorage.token else {
-                print("Error: No token available")
-                return
-            }
-            profileService.fetchProfile(token) { [weak self] result in
-                switch result {
-                case .success(let profile):
-                    DispatchQueue.main.async {
-                        self?.updateProfileDetails(profile: profile)
-                        self?.fetchProfileImage(username: profile.username)
-                    }
-                case .failure(let error):
-                    print("Failed to fetch profile: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
+//    private func updateProfileDetailsIfNeeded() {
+//        if let profile = profileService.profile {
+//            updateProfileDetails(profile: profile)
+//            fetchProfileImage(username: profile.username)
+//        } else {
+//            guard let token = tokenStorage.token else {
+//                print("Error: No token available")
+//                return
+//            }
+//            profileService.fetchProfile(token) { [weak self] result in
+//                switch result {
+//                case .success(let profile):
+//                    DispatchQueue.main.async {
+//                        self?.updateProfileDetails(profile: profile)
+//                        self?.fetchProfileImage(username: profile.username)
+//                    }
+//                case .failure(let error):
+//                    print("Failed to fetch profile: \(error.localizedDescription)")
+//                }
+//            }
+//        }
+//    }
     
-    private func fetchProfileImage(username: String) {
-        profileImageService.fetchProfileImageURL(username: username) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let imageURL):
-                print("Profile image URL: \(imageURL)")
-                self.updateAvatar()
-            case .failure(let error):
-                print("Failed to fetch profile image URL: \(error)")
-            }
-        }
-    }
+//    private func fetchProfileImage(username: String) {
+//        profileImageService.fetchProfileImageURL(username: username) { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let imageURL):
+//                print("Profile image URL: \(imageURL)")
+//                self.updateAvatar()
+//            case .failure(let error):
+//                print("Failed to fetch profile image URL: \(error)")
+//            }
+//        }
+//    }
     
     func updateProfileDetails(profile: Profile) {
         self.profile = profile
@@ -172,6 +188,7 @@ final class ProfileViewController: UIViewController {
             ProfileLogoutService.shared.logout()
             self?.switchToAuthViewController()
         }
+        
         let cancelAction = UIAlertAction(title: "Нет", style: .cancel, handler: nil)
         
         alert.addAction(logoutAction)

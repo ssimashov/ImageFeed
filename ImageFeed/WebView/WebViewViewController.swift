@@ -21,7 +21,7 @@ protocol WebViewViewControllerDelegate: AnyObject {
 }
 
 final class WebViewViewController: UIViewController & WebViewViewControllerProtocol {
- 
+    
     
     @IBOutlet private weak var webView: WKWebView!
     @IBOutlet private weak var progressView: UIProgressView!
@@ -36,13 +36,6 @@ final class WebViewViewController: UIViewController & WebViewViewControllerProto
         super.viewDidLoad()
         webView.navigationDelegate = self
         presenter?.viewDidLoad()
-        
-//        estimatedProgressObservation = webView.observe(
-//            \.estimatedProgress,
-//             options: [],
-//             changeHandler: { [weak self] _, _ in
-//                 self?.updateProgress()
-//             })
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -55,7 +48,6 @@ final class WebViewViewController: UIViewController & WebViewViewControllerProto
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        updateProgress()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,10 +57,6 @@ final class WebViewViewController: UIViewController & WebViewViewControllerProto
     func load(request: URLRequest) {
         webView.load(request)
     }
-    
-//    private func updateProgress() {
-//        progressView.setProgress(Float(webView.estimatedProgress), animated: true)
-//    }
     
     func setProgressValue(_ newValue: Float) {
         progressView.progress = newValue
