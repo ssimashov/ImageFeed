@@ -24,8 +24,6 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol {
     private let profileImageService: ProfileImageServiceProtocol = ProfileImageService.shared
     private let tokenStorage: OAuth2TokenStorageProtocol = OAuth2TokenStorage.shared
 
-    
-    
     func viewDidLoad() {
         view?.profileViewCreated()
         updateProfileDetailsIfNeeded()
@@ -73,6 +71,6 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol {
             let url = URL(string: profileImageURL)
         else { return }
         
-        view?.updateAvatarImage(with: url)
+        view?.updateAvatar(with: url)
     }
 }
