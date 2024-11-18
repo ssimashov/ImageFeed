@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class ImagesListViewController: UIViewController {
+protocol ImagesListViewControllerProtocol: AnyObject {
+    var presenter: ImagesListViewPresenterProtocol? { get set }
+    func updateTableViewAnimated()
+}
+
+final class ImagesListViewController: UIViewController & ImagesListViewControllerProtocol{
     
     @IBOutlet private var tableView: UITableView!
     
@@ -16,6 +21,15 @@ final class ImagesListViewController: UIViewController {
     
     var photos: [Photo] = []
     
+    var presenter: ImagesListViewPresenterProtocol?
+    
+    override func loadView() {
+          super.loadView()
+          if presenter == nil {
+              presenter = ImagesListViewPresenter(view: self)
+          }
+      }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         imagesListService.fetchPhotosNextPage()
@@ -28,17 +42,17 @@ final class ImagesListViewController: UIViewController {
         tableView.delegate = self
     }
     
-    @objc private func updateTableViewAnimated() {
+    @objc func updateTableViewAnimated() {
         DispatchQueue.main.async {
             let oldCount = self.photos.count
-            let newCount = self.imagesListService.photos.count
+            let newCount = self.presenter?.photos.count ?? 0
             if oldCount != newCount {
                 let indexPaths = (oldCount..<newCount).map { i in
                     IndexPath(row: i, section: 0)
                 }
                 self.tableView.performBatchUpdates {
                     self.tableView.insertRows(at: indexPaths, with: .automatic)
-                    self.photos = self.imagesListService.photos
+                    self.photos = self.presenter?.photos ?? []
                 } completion: { _ in }
             }
         }
@@ -99,7 +113,7 @@ extension ImagesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
         if indexPath.row == lastRowIndex {
-            imagesListService.fetchPhotosNextPage()
+            presenter?.fetchPhotosNextPage()
         }
     }
 }
@@ -111,10 +125,10 @@ extension ImagesListViewController: ImagesListCellDelegate {
         let photo = photos[indexPath.row]
         UIBlockingProgressHUD.show()
         
-        imagesListService.changeLike(photoId: photo.id, isLike: !photo.isLiked) { result in
+        presenter?.changeLike(photoId: photo.id, isLike: !photo.isLiked) { result in
             switch result {
             case .success:
-                self.photos = self.imagesListService.photos
+                self.photos = self.presenter?.photos ?? []
                 cell.setIsLiked(self.photos[indexPath.row].isLiked)
             case .failure:
                 let alert = UIAlertController(title: "Ошибка", message: "Не удалось изменить статус лайка", preferredStyle: .alert)
