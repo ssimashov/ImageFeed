@@ -22,7 +22,6 @@ final class ImagesListViewPresenter: ImagesListViewPresenterProtocol {
     }
     private let imageListService: ImagesListServiceProtocol = ImagesListService.shared
     
-    
     var photos: [Photo] {
         return imageListService.photos
     }

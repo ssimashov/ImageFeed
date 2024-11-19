@@ -47,7 +47,7 @@ final class ProfileViewController: UIViewController & ProfileViewControllerProto
         profilePresenter.view = self
         
         self.view.backgroundColor = UIColor.ypBlack
-        
+        exitButton.accessibilityIdentifier = "ExitButton"
         profileImageServiceObserver = NotificationCenter.default
             .addObserver(
                 forName: ProfileImageService.didChangeNotification,
@@ -60,7 +60,7 @@ final class ProfileViewController: UIViewController & ProfileViewControllerProto
         presenter?.viewDidLoad()
     }
     
-   func profileViewCreated() {
+    func profileViewCreated() {
         imageViewProfile.image = UIImage(named: "defaultProfileImage")
         imageViewProfile.tintColor = .red
         imageViewProfile.layer.cornerRadius = 35
@@ -107,7 +107,7 @@ final class ProfileViewController: UIViewController & ProfileViewControllerProto
         descriptionLabel.leadingAnchor.constraint(equalTo: imageViewProfile.leadingAnchor).isActive = true
     }
     
-   func updateAvatar(with url: URL) {
+    func updateAvatar(with url: URL) {
         
         imageViewProfile.kf.setImage(with: url) { result in
             switch result {
