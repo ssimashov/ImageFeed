@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class ProfileImageService {
+protocol ProfileImageServiceProtocol {
+    var avatarURL: String? { get }
+    func fetchProfileImageURL(username: String, _ completion: @escaping (Result<String, Error>) -> Void)
+}
+
+final class ProfileImageService: ProfileImageServiceProtocol {
     static let shared = ProfileImageService()
     private init() {}
     
@@ -77,12 +82,8 @@ final class ProfileImageService {
     }
     
     private func makeProfileImageRequest(username: String) -> URLRequest? {
-        guard let baseURL = Constants.defaultBaseURL else {
-            assertionFailure("Failed to create URL")
-            return nil
-        }
         
-        guard let url = URL(string: "/users/\(username)", relativeTo: baseURL) else {
+        guard let url = URL(string: "/users/\(username)", relativeTo: Constants.defaultBaseURL) else {
             return nil
         }
         

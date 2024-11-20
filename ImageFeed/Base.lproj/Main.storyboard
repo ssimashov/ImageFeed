@@ -33,6 +33,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxN-iv-mr6">
                                 <rect key="frame" x="16" y="704" width="361" height="48"/>
                                 <color key="backgroundColor" name="YP White"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Authenticate"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="y4X-Mf-HXJ"/>
                                 </constraints>
@@ -72,7 +73,7 @@
         <!--Web View View Controller-->
         <scene sceneID="Ppi-gr-pnF">
             <objects>
-                <viewController id="M3b-Vx-yB9" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewViewController" id="M3b-Vx-yB9" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8pu-n8-GWx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +93,9 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qkO-27-Vck"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="UnsplashWebView">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="HUD-si-eRy" secondAttribute="bottom" constant="34" id="6Yx-rv-yyb"/>
                             <constraint firstAttribute="leading" secondItem="HUD-si-eRy" secondAttribute="leading" id="Nej-uv-uXu"/>
@@ -167,6 +171,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2I-8Z-CMa" userLabel="Like Button">
                                                     <rect key="frame" x="333" y="4" width="44" height="44"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="LikeButton"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="CP2-LT-REI"/>
                                                         <constraint firstAttribute="width" constant="44" id="TOg-CU-Pj7"/>
@@ -244,6 +249,7 @@
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CP-ZD-5X2" userLabel="Back Button">
                                 <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                <accessibility key="accessibilityConfiguration" identifier="NavBackButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="h73-HS-Zmg"/>
                                     <constraint firstAttribute="width" constant="44" id="oD1-po-7qj"/>
