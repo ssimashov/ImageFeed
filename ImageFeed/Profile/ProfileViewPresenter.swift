@@ -16,20 +16,21 @@ protocol ProfileViewPresenterProtocol {
 
 final class ProfileViewPresenter: ProfileViewPresenterProtocol {
     weak var view: ProfileViewControllerProtocol?
-    init(view: ProfileViewControllerProtocol) {
-        self.view = view
-    }
     
     private let profileService: ProfileServiceProtocol = ProfileService.shared
     private let profileImageService: ProfileImageServiceProtocol = ProfileImageService.shared
     private let tokenStorage: OAuth2TokenStorageProtocol = OAuth2TokenStorage.shared
-
+    
+    init(view: ProfileViewControllerProtocol) {
+        self.view = view
+    }
+    
     func viewDidLoad() {
         view?.profileViewCreated()
         updateProfileDetailsIfNeeded()
         updateAvatar()
     }
-
+    
     func updateProfileDetailsIfNeeded() {
         if let profile = profileService.profile {
             view?.updateProfileDetails(profile: profile)
@@ -52,7 +53,7 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol {
             }
         }
     }
-
+    
     func fetchProfileImage(username: String) {
         profileImageService.fetchProfileImageURL(username: username) { [weak self] result in
             switch result {
@@ -64,7 +65,7 @@ final class ProfileViewPresenter: ProfileViewPresenterProtocol {
             }
         }
     }
-
+    
     func updateAvatar() {
         guard
             let profileImageURL = ProfileImageService.shared.avatarURL,

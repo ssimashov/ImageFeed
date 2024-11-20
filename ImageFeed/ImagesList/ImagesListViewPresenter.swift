@@ -17,13 +17,15 @@ protocol ImagesListViewPresenterProtocol {
 
 final class ImagesListViewPresenter: ImagesListViewPresenterProtocol {
     weak var view: ImagesListViewControllerProtocol?
-    init(view: ImagesListViewControllerProtocol) {
-        self.view = view
-    }
+    
     private let imageListService: ImagesListServiceProtocol = ImagesListService.shared
     
     var photos: [Photo] {
         return imageListService.photos
+    }
+    
+    init(view: ImagesListViewControllerProtocol) {
+        self.view = view
     }
     
     func viewDidLoad() {
@@ -35,6 +37,7 @@ final class ImagesListViewPresenter: ImagesListViewPresenterProtocol {
         )
         fetchPhotosNextPage()
     }
+    
     @objc func updateTableViewAnimated() {
         view?.updateTableViewAnimated()
     }

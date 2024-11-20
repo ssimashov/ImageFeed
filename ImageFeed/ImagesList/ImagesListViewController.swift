@@ -23,15 +23,12 @@ final class ImagesListViewController: UIViewController & ImagesListViewControlle
     
     var presenter: ImagesListViewPresenterProtocol?
     
-    override func loadView() {
-          super.loadView()
-          if presenter == nil {
-              presenter = ImagesListViewPresenter(view: self)
-          }
-      }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if presenter == nil {
+            presenter = ImagesListViewPresenter(view: self)
+        }
         presenter?.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200

@@ -10,7 +10,6 @@ import Foundation
 
 final class ProfileViewPresenterSpy: ProfileViewPresenterProtocol {
     
-    
     var view: ImageFeed.ProfileViewControllerProtocol?
     
     var viewDidLoadCalled: Bool = false
